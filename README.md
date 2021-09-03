@@ -6,7 +6,7 @@ Create a rate limiter program using a sliding window which allows/blocks request
 
 ### Using Sliding Window with Counter
 
-**Time Compliexity - O(n), Since Sliding window protocol runs of "n" time in single loop**
+**Time Compliexity - O(n), Since Sliding window protocol have worst case time compliexity of O(n)**
 
 **Space Compliexity - O(n), Since using Stack lead to extra space**
 
@@ -17,10 +17,10 @@ Create a rate limiter program using a sliding window which allows/blocks request
 rateLimiter(R,S,Sequence):
   
   if R<=0:
-     throw error and stop program;
+     throw error and terminate program;
   
   if S<=0:
-     throw error and stop program;
+     throw error and terminate program;
   
   counter = 0;
   
@@ -53,23 +53,27 @@ end procedure
 
 Step 1: Start the procedure
 
-Step 2: Ensure R or S is not equal to 0 or less than 0, if R or S is equal to zero or less than, then preint respective error message and end the program
+// R, S and Sequence as passed from the main function as a paramters
+
+Step 2: Check whether R or S is not equal to 0 or less than 0, if R or S is equal to 0 or less than 0, then print respective error message and terminate the program
 
 Step 3: Initialize the counter to 0
 
-step 4: Run loop for sequence times
+step 4: Run loop for "Sequence" number of times. 
+
+// itr as iterating variable
 
 Step 5: Add the Sequence[itr] to the stack
 
-Step 6: increment counter for all insertion
+Step 6: increment the counter after each insertion
 
-Step 7: If itr becomes R, then wait(ignore) the sequence until the time period - S 
+Step 7: When itr==R, then wait(ignore) for the sequence until the time period - S gets over. 
 
 Step 8: set counter 0.
 
-Step 9: Repeat from step 5 to step 8 till all the sequence value is completely traversed and end loop
+Step 9: Repeat from step 5 to step 8 till all the values in the Sequence is completely traversed. Then end the loop
 
-Step 10: Run loop for every sequence value
+Step 10: Run loop for every values in the Sequence
 
 Step 11: if sequence is present in the stack then print sequence is allowed, if sequence is not present in stack then print sequence is blocked
 
